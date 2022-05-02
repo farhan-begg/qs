@@ -11,7 +11,11 @@ function Box({ color }) {
   const [scale] = useState(() => Math.pow(Math.random(), 2.0) * 0.5 + 0.05);
 
   function getInitialPosition() {
-    let v = new Vector3((Math.random() * 2 - 1) * 3, Math.random() * 2.5 + 0.1, (Math.random() * 2 - 1) * 15);
+    let v = new Vector3(
+      (Math.random() * 2 - 1) * 3,
+      Math.random() * 2.5 + 0.1,
+      (Math.random() * 2 - 1) * 15,
+    );
     if (v.x < 0) v.x -= 1.75;
     if (v.x > 0) v.x += 1.75;
 
@@ -19,7 +23,11 @@ function Box({ color }) {
   }
 
   function resetPosition() {
-    let v = new Vector3((Math.random() * 2 - 1) * 3, Math.random() * 2.5 + 0.1, Math.random() * 10 + 10);
+    let v = new Vector3(
+      (Math.random() * 2 - 1) * 3,
+      Math.random() * 2.5 + 0.1,
+      Math.random() * 10 + 10,
+    );
     if (v.x < 0) v.x -= 1.75;
     if (v.x > 0) v.x += 1.75;
 
@@ -29,31 +37,22 @@ function Box({ color }) {
   useFrame(
     (state, delta) => {
       time.current += delta * 1.2;
-      let newZ = initialPosition.z - (time.current);
+      let newZ = initialPosition.z - time.current;
 
       if (newZ < -10) {
         resetPosition();
         time.current = 0;
       }
 
-      box.current.position.set(
-        initialPosition.x,
-        initialPosition.y,
-        newZ,
-      )
+      box.current.position.set(initialPosition.x, initialPosition.y, newZ);
       box.current.rotation.x += delta * xRotSpeed;
       box.current.rotation.y += delta * yRotSpeed;
     },
-    [xRotSpeed, yRotSpeed, initialPosition]
+    [xRotSpeed, yRotSpeed, initialPosition],
   );
 
   return (
-    <mesh
-      ref={box}
-      rotation-x={Math.PI * 0.5}
-      scale={scale}
-      castShadow
-    >
+    <mesh ref={box} rotation-x={Math.PI * 0.5} scale={scale} castShadow>
       <icosahedronGeometry />
       <meshPhongMaterial color={color} envMapIntensity={10} />
     </mesh>
@@ -67,7 +66,11 @@ export function Boxes() {
     return a;
   });
 
-  return <>
-    {arr.map((e, i) => <Box key={i} color={i % 2 === 0 ? [0, 10, 10] : [1, 1, 1]} />)}
-  </>
+  return (
+    <>
+      {arr.map((e, i) => (
+        <Box key={i} color={i % 2 === 0 ? [0, 10, 10] : [1, 1, 1]} />
+      ))}
+    </>
+  );
 }
