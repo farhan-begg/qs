@@ -13,11 +13,17 @@ import {
 
 const Modal = () => {
   const [openModal, setOpanModal] = useState(false);
+  const [value, setValue] = useState(null);
   const { isAuthenticated, account, Moralis } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
 
   const handleButton = () => {
     setOpanModal(!openModal);
+  };
+
+  const handleInput = (event) => {
+    console.log(value);
+    setValue(event.target.value);
   };
 
   const mint = async (input) => {
@@ -77,17 +83,24 @@ const Modal = () => {
                   id="outlined-basic"
                   label="NFT Amount"
                   variant="outlined"
-                  value={10}
+                  value={value}
                   style={{ margin: "10px" }}
+                  onChange={handleInput}
+                  type="number"
                 />
 
-                <TextField id="outlined-basic" label="Eth" variant="outlined" />
+                <TextField
+                  id="outlined-basic"
+                  label="Eth"
+                  variant="outlined"
+                  onChange={handleInput}
+                />
 
                 {/* <Input /> */}
 
                 <ConnectBtn
                   className="mint-connect-btn"
-                  onClick={() => mint(2)}
+                  onClick={() => mint(value)}
                 >
                   Mint
                 </ConnectBtn>

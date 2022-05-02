@@ -298,7 +298,7 @@ import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import Modal from "./components/modal/Modal";
 import Account from "./components/Account/Account";
-import Vortex from "components/vortex/Vortex";
+// import Vortex from "components/vortex/Vortex";
 // import Modal from "./components/modal/Modal";
 
 const App = () => {
@@ -333,7 +333,7 @@ const App = () => {
           width: "100vw",
         }}
       >
-        <Vortex />
+        {/* <Vortex /> */}
         {/* <Modal /> */}
         {/* <Loader /> */}
       </div>
