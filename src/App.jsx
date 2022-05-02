@@ -294,13 +294,15 @@
 
 // export default App;
 // import Loader from "components/loading/Loader";
+import Vortex from "components/vortex/Vortex";
 import React from "react";
-import Modal from "./components/modal/Modal";
+// import Modal from "./components/modal/Modal";
 
 const App = () => {
   return (
-    <div>
-      <Modal />
+    <div style={{ background: "black", height: "100vh" }}>
+      <Vortex />
+      {/* <Modal /> */}
       {/* <Loader /> */}
     </div>
   );
