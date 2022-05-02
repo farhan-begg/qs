@@ -1,3 +1,4 @@
+import { TextField } from "@material-ui/core";
 import React, { useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import {
@@ -60,15 +61,28 @@ const Modal = () => {
   }
   return (
     <>
-      <div onClick={handleButton}>Button</div>
+      <div
+        style={{ position: "absolute", bottom: "40%", color: "white" }}
+        onClick={handleButton}
+      >
+        Button
+      </div>
       {openModal ? (
         <Background>
           <ModalWrapper>
             <ModalContent>
               <h1 className="modal-content-title">MINT NFT</h1>
               <InputWrapper>
-                <input />
-                <input />
+                <TextField
+                  id="outlined-basic"
+                  label="NFT Amount"
+                  variant="outlined"
+                  value={10}
+                  style={{ margin: "10px" }}
+                />
+
+                <TextField id="outlined-basic" label="Eth" variant="outlined" />
+
                 {/* <Input /> */}
 
                 <ConnectBtn
@@ -84,12 +98,10 @@ const Modal = () => {
                 information We make no representation or warranty
               </CopyWrite>
             </ModalContent>
-            <CloseModalButton aria-label="Close modal" />
+            <CloseModalButton aria-label="Close modal" onClick={handleButton} />
           </ModalWrapper>
         </Background>
-      ) : (
-        <div></div>
-      )}
+      ) : null}
     </>
   );
 };

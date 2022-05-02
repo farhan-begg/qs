@@ -20,9 +20,14 @@ const styles = {
     borderRadius: "12px",
     backgroundColor: "rgb(244, 244, 244)",
     cursor: "pointer",
+    position: "absolute",
+    bottom: "90%",
+    right: "10%",
   },
   text: {
-    color: "#21BF96",
+    color: "White",
+    position: "absolute",
+    bottom: "35%",
   },
   connector: {
     alignItems: "center",

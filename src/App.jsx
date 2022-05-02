@@ -298,6 +298,8 @@ import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
 import Modal from "./components/modal/Modal";
 import Account from "./components/Account/Account";
+import Vortex from "components/vortex/Vortex";
+// import Modal from "./components/modal/Modal";
 
 const App = () => {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
@@ -311,10 +313,30 @@ const App = () => {
   }, [isAuthenticated, isWeb3Enabled]);
 
   return (
-    <div>
-      <Modal />
-      <Account />
-      {/* <Loader /> */}
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100%",
+        height: "100vh",
+      }}
+    >
+      <Modal style={{ background: "red" }} />
+      <Account style={{ background: "red" }} />
+      <div
+        style={{
+          background: "black",
+          height: "100vh",
+          zIndex: "-1",
+          position: "absolute",
+          width: "100vw",
+        }}
+      >
+        <Vortex />
+        {/* <Modal /> */}
+        {/* <Loader /> */}
+      </div>
     </div>
   );
 };
