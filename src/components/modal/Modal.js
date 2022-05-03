@@ -1,5 +1,7 @@
 import { TextField } from "@material-ui/core";
+import { Card } from "antd";
 import React, { useState } from "react";
+import "./Modal.css";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import {
   Background,
@@ -67,12 +69,17 @@ const Modal = () => {
   }
   return (
     <>
-      <div
-        style={{ position: "absolute", bottom: "40%", color: "white" }}
+      <button
+        style={{
+          position: "absolute",
+          bottom: "40%",
+          color: "white",
+          cursor: "pointer",
+        }}
         onClick={handleButton}
       >
-        Button
-      </div>
+        MINT
+      </button>
       {openModal ? (
         <Background>
           <ModalWrapper>
@@ -89,13 +96,7 @@ const Modal = () => {
                   type="number"
                 />
 
-                <TextField
-                  id="outlined-basic"
-                  label="Eth"
-                  variant="outlined"
-                  onChange={handleInput}
-                />
-
+                <Card> {value * 0.05}</Card>
                 {/* <Input /> */}
 
                 <ConnectBtn

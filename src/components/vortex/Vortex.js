@@ -29,7 +29,7 @@ function Model({ url, ...props }) {
 }
 
 function Rotate(props) {
-  const ref = useRef();
+  const ref = useRef(); d
   useFrame((state) => (ref.current.rotation.y = state.clock.elapsedTime / 5));
   return <group ref={ref} {...props} />;
 }
