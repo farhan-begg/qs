@@ -21,9 +21,6 @@ const Modal = () => {
   };
 
   const mint = async (input) => {
-    if (`${account}` != "0x276c916448B354262fbA2951747FC3dc728cAd7b") {
-      return;
-    }
     let options = {
       contractAddress: "0x1eF311a1e4fc4673D7463Ee7bd20Bd082785A9C2",
       functionName: "buy",
@@ -108,7 +105,7 @@ const Modal = () => {
                   className="mint-connect-btn btn"
                   onClick={() => mint(value)}
                 >
-                  Minting Soon
+                  Mint
                 </button>
               </InputWrapper>
 
