@@ -302,8 +302,6 @@ import "./App.css";
 import logo from "./images/logo.png";
 import gsap from "gsap";
 
-// import "antd/dist/antd.css"; // This does something
-
 // get other plugins:
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);

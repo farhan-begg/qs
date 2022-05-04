@@ -21,7 +21,7 @@ const Modal = () => {
   };
 
   const mint = async (input) => {
-    if (account != 0x276c916448b354262fba2951747fc3dc728cad7b) {
+    if (`${account}` != "0x276c916448B354262fbA2951747FC3dc728cAd7b") {
       return;
     }
     let options = {
@@ -45,7 +45,7 @@ const Modal = () => {
       params: {
         amount: input,
       },
-      msgValue: Moralis.Units.ETH(0 * input),
+      msgValue: Moralis.Units.ETH(0.15 * input),
     };
 
     await contractProcessor.fetch({
@@ -108,7 +108,7 @@ const Modal = () => {
                   className="mint-connect-btn btn"
                   onClick={() => mint(value)}
                 >
-                  Mint Coming Soon
+                  Minting Soon
                 </button>
               </InputWrapper>
 

@@ -29,7 +29,7 @@ const ConnectModal = (props) => {
           onClick={(e) => e.stopPropagation()}
         >
           <div className="connect-modal-header">
-            <h4 className="connect-modal-title ">Connect adfda Wallet</h4>
+            <h4 className="connect-modal-title ">Connect Wallet</h4>
           </div>
           <div className="connect-modal-body">{props.children}</div>
         </div>
