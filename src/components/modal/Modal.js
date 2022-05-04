@@ -100,13 +100,30 @@ const Modal = () => {
                 {/* <Input /> */}
 
                 <button
-                  style={{ marginTop: "20px", border: "2px solid aqua" }}
+                  style={{
+                    marginTop: "20px",
+                    border: "2px solid aqua",
+                    fontSize: "12px",
+                  }}
                   className="mint-connect-btn btn"
                   onClick={() => mint(value)}
                 >
-                  Mint
+                  Mint Coming Soon
                 </button>
               </InputWrapper>
+
+              <div
+                style={{
+                  position: "relative",
+                  bottom: "30px",
+                  padding: "10px",
+                  color: "red",
+                }}
+              >
+                <p>WARNING!!!</p>
+                Make Sure your Wallet is on the Ethereum Minnet
+              </div>
+
               <CopyWrite>
                 {" "}
                 The information provided by Quantum Society is for general
