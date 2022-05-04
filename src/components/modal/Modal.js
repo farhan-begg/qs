@@ -16,7 +16,7 @@ import {
 const Modal = () => {
   const [openModal, setOpanModal] = useState(false);
   const [value, setValue] = useState(null);
-  const { isAuthenticated, account, Moralis } = useMoralis();
+  const { account, Moralis } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
 
   const handleButton = () => {
@@ -64,9 +64,9 @@ const Modal = () => {
     });
   };
 
-  if (!isAuthenticated || !account) {
-    return <div>Connect your wallet</div>;
-  }
+  // if (!isAuthenticated || !account) {
+  //   return <div>Connect your wallet</div>;
+  // }
   return (
     <>
       <button
@@ -100,10 +100,12 @@ const Modal = () => {
                 {/* <Input /> */}
 
                 <ConnectBtn
+                  disabled
                   className="mint-connect-btn"
-                  onClick={() => mint(value)}
+                  style={{ color: "white" }}
+                  onClick={mint(value)}
                 >
-                  Mint
+                  Minting Soon
                 </ConnectBtn>
               </InputWrapper>
               <CopyWrite>

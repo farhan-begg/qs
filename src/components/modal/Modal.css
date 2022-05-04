@@ -32,6 +32,7 @@ button:hover {
   -webkit-animation-iteration-count: 1;
   animation-fill-mode: forwards;
   -webkit-animation-fill-mode: forwards;
+  cursor: pointer;
 }
 
 @keyframes gradient {

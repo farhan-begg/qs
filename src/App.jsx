@@ -296,9 +296,18 @@
 // import Loader from "components/loading/Loader";
 import { useEffect } from "react";
 import { useMoralis } from "react-moralis";
-import Modal from "./components/modal/Modal";
 import Account from "./components/Account/Account";
 import Vortex from "components/vortex/Vortex";
+import "./App.css";
+import logo from "./images/logo.png";
+import gsap from "gsap";
+
+// import "antd/dist/antd.css"; // This does something
+
+// get other plugins:
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
 // import Spiral from "components/spiral/Spiral";
 // import Modal from "./components/modal/Modal";
 
@@ -312,7 +321,6 @@ const App = () => {
       enableWeb3({ provider: connectorId });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuthenticated, isWeb3Enabled]);
-
   return (
     <div
       style={{
@@ -323,8 +331,18 @@ const App = () => {
         height: "100vh",
       }}
     >
-      <Modal style={{ background: "red" }} />
-      <Account style={{ background: "red" }} />
+      <img
+        src={logo}
+        style={{
+          maxWidth: "50px",
+          position: "absolute",
+          top: "5%",
+          left: "5%",
+        }}
+      />
+
+      <Account />
+
       <div
         style={{
           background: "black",
@@ -334,10 +352,7 @@ const App = () => {
           width: "100vw",
         }}
       >
-        {/* <Spiral /> */}
         <Vortex />
-        {/* <Modal /> */}
-        {/* <Loader /> */}
       </div>
     </div>
   );

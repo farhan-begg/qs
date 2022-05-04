@@ -1,0 +1,52 @@
+.connect-modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.connect-modal.enter-done {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.connect-modal.exit {
+  opacity: 0;
+}
+
+.connect-modal-content {
+  width: 500px;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-200px);
+}
+
+.connect-modal.enter-done .connect-modal-content {
+  transform: translateY(0);
+}
+
+.connect-modal.exit .connect-modal-content {
+  transform: translateY(-200px);
+}
+
+.connect-modal-header {
+  padding: 10px;
+}
+
+.connect-modal-title {
+  margin: 0;
+}
+
+.connect-modal-body {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
