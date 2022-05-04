@@ -23,7 +23,7 @@ const ConnectModal = (props) => {
       unmountOnExit
       timeout={{ enter: 0, exit: 300 }}
     >
-      <div className="connect-modal" onClick={props.onClose}>
+      <button className="connect-modal" onClick={props.onClose}>
         <div
           className="connect-modal-content"
           onClick={(e) => e.stopPropagation()}
@@ -33,7 +33,7 @@ const ConnectModal = (props) => {
           </div>
           <div className="connect-modal-body">{props.children}</div>
         </div>
-      </div>
+      </button>
     </CSSTransition>,
     document.getElementById("root"),
   );

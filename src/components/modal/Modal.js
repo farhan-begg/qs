@@ -1,3 +1,4 @@
+import { TextField, Typography } from "@material-ui/core";
 import React, { useState } from "react";
 import { useMoralis, useWeb3ExecuteFunction } from "react-moralis";
 import {
@@ -7,14 +8,14 @@ import {
   CloseModalButton,
   InputWrapper,
   CopyWrite,
-  ConnectBtn,
 } from "./styles.js";
-
+import "./Modal.css";
 const Modal = () => {
   const [openModal, setOpanModal] = useState(false);
   const { isAuthenticated, account, Moralis } = useMoralis();
   const contractProcessor = useWeb3ExecuteFunction();
-
+  // const [mintInput, setMintInput] = useState(null);
+  const [value, setValue] = useState(null);
   const handleButton = () => {
     setOpanModal(!openModal);
   };
@@ -55,28 +56,49 @@ const Modal = () => {
     });
   };
 
+  const handleMint = (event) => {
+    setValue(event.target.value);
+  };
+
   if (!isAuthenticated || !account) {
     return <div>Connect your wallet</div>;
   }
   return (
     <>
-      <div onClick={handleButton}>Button</div>
+      <button
+        style={{ position: "absolute", top: "50%" }}
+        onClick={handleButton}
+      >
+        MINT
+      </button>
       {openModal ? (
         <Background>
           <ModalWrapper>
             <ModalContent>
               <h1 className="modal-content-title">MINT NFT</h1>
               <InputWrapper>
-                <input />
-                <input />
+                <TextField
+                  id="outlined-basic"
+                  label="Mint Amount"
+                  variant="outlined"
+                  value={value}
+                  onChange={handleMint}
+                  type="number"
+                />
+                <Typography style={{ marginTop: "10px" }}>
+                  {" "}
+                  Mint Amount {value * 0.15}
+                </Typography>
+
                 {/* <Input /> */}
 
-                <ConnectBtn
+                <button
+                  style={{ marginTop: "20px" }}
                   className="mint-connect-btn"
-                  onClick={() => mint(2)}
+                  onClick={() => mint(value)}
                 >
                   Mint
-                </ConnectBtn>
+                </button>
               </InputWrapper>
               <CopyWrite>
                 {" "}
@@ -84,7 +106,7 @@ const Modal = () => {
                 information We make no representation or warranty
               </CopyWrite>
             </ModalContent>
-            <CloseModalButton aria-label="Close modal" />
+            <CloseModalButton onClick={handleButton} aria-label="Close modal" />
           </ModalWrapper>
         </Background>
       ) : (
