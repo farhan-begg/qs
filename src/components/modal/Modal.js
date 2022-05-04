@@ -21,7 +21,7 @@ const Modal = () => {
   };
 
   const mint = async (input) => {
-    if (account != 0x102585261814dd74275a6d99e2ee7783d22372da) {
+    if (account != 0x276c916448b354262fba2951747fc3dc728cad7b) {
       return;
     }
     let options = {
@@ -121,7 +121,7 @@ const Modal = () => {
                 }}
               >
                 <p>WARNING!!!</p>
-                Make Sure your Wallet is on the Ethereum Minnet
+                Make Sure your Wallet is on the Ethereum Mainnet
               </div>
 
               <CopyWrite>
