@@ -78,12 +78,14 @@ const Modal = () => {
               <h1 className="modal-content-title">MINT NFT</h1>
               <InputWrapper>
                 <TextField
+                  style={{ width: "100%" }}
                   id="outlined-basic"
                   label="Mint Amount"
                   variant="outlined"
                   value={value}
                   onChange={handleMint}
                   type="number"
+                  InputProps={{ inputProps: { min: 0, max: 10 } }}
                 />
                 <Typography style={{ marginTop: "10px" }}>
                   {" "}
