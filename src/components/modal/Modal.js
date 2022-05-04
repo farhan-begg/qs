@@ -21,34 +21,31 @@ const Modal = () => {
   };
 
   const mint = async (input) => {
+    if (account != 0x102585261814dd74275a6d99e2ee7783d22372da) {
+      return;
+    }
     let options = {
-      contractAddress: "0x952C34de67167E9A4ad826b1411D750cF3Ddff62",
-      functionName: "mint",
+      contractAddress: "0x1eF311a1e4fc4673D7463Ee7bd20Bd082785A9C2",
+      functionName: "buy",
       abi: [
         {
           inputs: [
             {
-              internalType: "address",
-              name: "_to",
-              type: "address",
-            },
-            {
-              internalType: "uint256",
-              name: "_mintAmount",
-              type: "uint256",
+              internalType: "uint8",
+              name: "amount",
+              type: "uint8",
             },
           ],
-          name: "mint",
+          name: "buy",
           outputs: [],
           stateMutability: "payable",
           type: "function",
         },
       ],
       params: {
-        _to: account,
-        _mintAmount: input,
+        amount: input,
       },
-      msgValue: Moralis.Units.ETH(0.15 * input),
+      msgValue: Moralis.Units.ETH(0 * input),
     };
 
     await contractProcessor.fetch({
