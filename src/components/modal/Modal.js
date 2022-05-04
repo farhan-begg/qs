@@ -89,7 +89,7 @@ const Modal = () => {
                 />
                 <Typography style={{ marginTop: "10px" }}>
                   {" "}
-                  Mint Amount {value * 0.15}
+                  Mint Amount {(value * 0.15).toFixed(2)} ETH
                 </Typography>
 
                 {/* <Input /> */}
