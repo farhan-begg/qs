@@ -6,6 +6,7 @@ import { connectors } from "./config";
 import { CopyWrite } from "../modal/styles.js";
 import ConnectModal from "../modal/ConnectModal";
 import Modal from "../modal/Modal";
+import "../modal/Modal.css";
 import { useStyles } from "./styles";
 const styles = {
   account: {
@@ -50,8 +51,12 @@ function Account() {
   if (!isAuthenticated || !account) {
     return (
       <>
-        <button onClick={() => setIsAuthModalVisible(true)}>
-          Connect Wallet
+        <button
+          className="btn"
+          style={{ fontSize: "16px", border: "2px solid aqua" }}
+          onClick={() => setIsAuthModalVisible(true)}
+        >
+          CONNECT WALLET
         </button>
 
         <ConnectModal
@@ -90,8 +95,8 @@ function Account() {
   return (
     <>
       <button
-        style={{ position: "absolute", top: "5%", right: "5%" }}
-        className={classes.connectBtn}
+        style={{ position: "absolute", top: "5%", right: "5%", with: "200px" }}
+        className={`${classes.connectBtn} btn`}
         onClick={async () => {
           await logout();
           window.localStorage.removeItem("connectorId");

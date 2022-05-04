@@ -1,4 +1,4 @@
-button {
+.btn {
   -webkit-appearance: none;
   background: -webkit-gradient(to right, #6c6c6c 0%, #0280cf 50%, #0087a8 100%);
   background: linear-gradient(to right, #7f7f7f 0%, #188bb8 50%, #00dee5 100%);
@@ -23,7 +23,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btn:hover {
   animation-name: gradient;
   -webkit-animation-name: gradient;
   animation-duration: 2s;

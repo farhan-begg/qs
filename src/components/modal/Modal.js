@@ -61,12 +61,20 @@ const Modal = () => {
   };
 
   if (!isAuthenticated || !account) {
-    return <div>Connect your wallet</div>;
+    return (
+      <div style={{ border: "2px solid purple" }}>Connect your wallet</div>
+    );
   }
   return (
     <>
       <button
-        style={{ position: "absolute", top: "50%" }}
+        className="btn"
+        style={{
+          position: "absolute",
+          top: "50%",
+          border: "2px solid purple",
+          fontSize: "16px",
+        }}
         onClick={handleButton}
       >
         MINT
@@ -85,7 +93,7 @@ const Modal = () => {
                   value={value}
                   onChange={handleMint}
                   type="number"
-                  InputProps={{ inputProps: { min: 0, max: 10 } }}
+                  InputProps={{ inputProps: { min: 0, max: 2 } }}
                 />
                 <Typography style={{ marginTop: "10px" }}>
                   {" "}
@@ -95,8 +103,8 @@ const Modal = () => {
                 {/* <Input /> */}
 
                 <button
-                  style={{ marginTop: "20px" }}
-                  className="mint-connect-btn"
+                  style={{ marginTop: "20px", border: "2px solid aqua" }}
+                  className="mint-connect-btn btn"
                   onClick={() => mint(value)}
                 >
                   Mint
